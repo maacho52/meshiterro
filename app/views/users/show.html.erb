@@ -1,0 +1,12 @@
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image, size:"100,100" %>
+  <% if @user == current_user %>
+   <p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>
+  <% end %>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+<%= render 'post_images/list', post_images: @post_images %>
+<!-- users/show.html.erbの場合違うフォルダに部分テンプレートがあるため、フォルダ名も指定する必要がある-->
